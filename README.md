@@ -1,43 +1,120 @@
 # PWII-Felipe-Rocha
 Programação Web ii por João Siles e Najara Cardoso
-## Read-me
+🛠️ Guia de Instalação e Uso do Laravel com Composer, Node.js e Vue
+📌 Introdução
+Este guia apresenta os passos para instalação do Laravel, configuração de ambiente e criação de um projeto Laravel com Vue.js, utilizando Composer, Node.js, Laravel Installer e XAMPP.
 
-Documentação passo a passo da criação de  aplicações Laravel.
+⚙️ Pré-requisitos
+Antes de começar, certifique-se de que você possui os seguintes itens instalados:
 
+PHP 8.1+: Linguagem base do Laravel.
+Composer: Gerenciador de dependências PHP.
+Node.js e npm: Necessários para compilar assets e frontend.
+XAMPP/WAMP: Para simular ambiente local com servidor Apache e MySQL.
+Laravel Installer: Ferramenta para criar projetos Laravel via terminal.
+✅ Verificações de Instalação
+Verificar o Composer
+composer -v
+Verificar o Node.js
+node -v
+🧱 Instalação do Laravel Installer
+Execute:
 
-## PHP
+composer global require laravel/installer
+Certifique-se de que o diretório do Composer está no PATH do sistema.
 
-Deve-se criar um arquivo php na IDE escolhida por você.
+🧪 Testar a Instalação
+Após instalar, crie seu projeto com:
 
-Para executar um arquivo de PHP siga estes passo:
+laravel new nome-do-projeto
+O terminal solicitará:
 
- - Clone o repositório no caminho  `"C:\xampp\htdocs"` 
- - Abra o powershell como administrador
- - Execute os comandos na seguinte ordem:
- - `npm install -g typescript`
- - `npm install -g tsc`
-Para executar o arquivo feche o powershell e abra novamente na pasta em que se localiza o arquivo e execute a seguinte linha:
+Kit de inicialização (recomenda-se vue).
+Autenticação (use a opção padrão do Laravel).
+📁 Acesse a pasta do projeto
+cd nome-do-projeto
+⚙️ Configuração do Ambiente
+Copie o arquivo .env.example:
 
-    -`tsc .nomedoarquivo.ts`
-    
+cp .env.example .env
+php artisan key:generate
+🗄️ Configure seu banco de dados
+Edite o arquivo .env:
 
-# Laravel
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nome_banco
+DB_USERNAME=root
+DB_PASSWORD=senha
+🔄 Execute as Migrations (opcional)
+php artisan migrate
+🧪 Testar no navegador
+php artisan serve
+Acesse: http://localhost:8000
 
-As seguintes instruções se dirigem para a instalação do Laravel e a criação de uma aplicação Laravel.
+🎨 Instalar dependências frontend e compilar assets
+npm install && npm run build
+Instala bibliotecas JS e compila arquivos para produção.
 
-## Criação do projeto Laravel
-Primeiramente, instale o composer no seguinte link:https://getcomposer.org/download/
-Execute o powershell e execute as seguintes linha:
- - `composer -v`
- - `npm install -g typescript`
- - `node -v`
- Feche o terminal e execute o powershell como administrador, em seguida execute estas linhas:
- 
+🚀 Ambiente completo de desenvolvimento
+composer run dev
+Este comando ativa:
 
-    `Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://php.new/install/windows/8.4'))
-`
+php artisan serve: servidor local.
+Queue worker: tarefas em segundo plano.
+Vite: atualiza frontend automaticamente.
+📎 Dica
+Caso o Composer não reconheça o PHP, indique manualmente o executável no instalador (ex: xampp/php/php.exe).
 
-    `composer global require laravel/installer`
-    `Laravel new <Nome da Aplicação>`
-    `composer run dev`
+Pronto! Seu ambiente Laravel com Vue está configurado e pronto para o desenvolvimento!
 
+🚀 Criando uma Aplicação Laravel
+📦 Instalando o PHP e o Laravel Installer
+Antes de criar sua primeira aplicação Laravel, certifique-se de que sua máquina possui os seguintes itens instalados:
+
+PHP
+Composer
+Laravel Installer
+Node + NPM (ou Bun) – para compilar os assets do frontend
+✅ Instalação via Script
+Se você ainda não tem o PHP e o Composer instalados, execute o seguinte comando no PowerShell do Windows como administrador:
+
+Set-ExecutionPolicy Bypass -Scope Process -Force; `
+[System.Net.ServicePointManager]::SecurityProtocol = `
+[System.Net.ServicePointManager]::SecurityProtocol -bor 3072; `
+iex ((New-Object System.Net.WebClient).DownloadString('https://php.new/install/windows/8.4'))
+Após executar o comando, reinicie o terminal.
+Para atualizar o PHP, Composer e Laravel Installer, execute novamente o mesmo comando no futuro.
+
+💡 Se você já tem o PHP e o Composer instalados
+Instale o Laravel Installer com:
+
+composer global require laravel/installer
+Para uma experiência gráfica e completa de instalação e gerenciamento do PHP, você pode utilizar o Laravel Herd.
+
+🛠 Criando a Aplicação Laravel
+Com tudo instalado, crie sua aplicação Laravel com o comando:
+
+laravel new exemplo-app
+Durante o processo, você poderá escolher:
+
+Framework de testes
+Banco de dados
+Kit inicial (Vue, React, Livewire, etc.)
+🚧 Executando a Aplicação
+Acesse a pasta do projeto:
+
+cd exemplo-app
+Instale as dependências do frontend e compile os arquivos:
+
+npm install && npm run build
+Inicie o ambiente completo de desenvolvimento:
+
+composer run dev
+Esse comando irá:
+
+Rodar o servidor local Laravel em http://localhost:8000
+Ativar o queue worker (tarefas em segundo plano)
+Iniciar o Vite para recarregamento automático do frontend
+Pronto! Agora você pode começar a desenvolver sua aplicação com Laravel!
