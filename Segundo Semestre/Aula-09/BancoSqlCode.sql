@@ -1,5 +1,7 @@
-create DATABASE bancoSql;
+create DATABASE if not exists bancoSql;
 use bancoSql;
+
+DROP TABLE dados;
 
 create table dados(
 id int auto_increment primary key,

@@ -1,23 +1,18 @@
 <?php
 require 'databaseconnect.php';
+include 'inserir_dados.php';
 ?>
 <html>
-<form action="inserir_dados.php" method="post">
+        <head>
+        <link rel="stylesheet" href="tchetche.css">
 
-    <label for="nome">Insira seu nome:</label>
-    <input name="nome" id="nome" type="text">
+        </head>
+      <body>
+        <h1 class="titulo">Você irá se cadastrar ou fazer o login?</h1>
+        <a href="login.php" class="botao">Login</a>
+        <a href="cadastro.php" class="botao">Cadastrar</a>
 
-    <br>
 
-    <label for="idade">Insira sua idade:</label>
-    <input name ="idade" id="idade" type="number">
 
-    <br>
-
-    <label for = "CPF">Insira seu CPF:</label>
-    <input name ="CPF" id="CPF" type="number">
-
-    <br>
-    <button type="submit">Enviar</button>
-</form>
+      </body>
 </html>
