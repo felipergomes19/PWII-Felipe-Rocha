@@ -1,28 +1,22 @@
 <?php
+include('Databaseconnect.php');
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT); // Criptografa a senha
+
+    $sql = "INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sss", $nome, $email, $senha);
+
+    if ($stmt->execute()) {
+        echo "Usuário cadastrado com sucesso!";
+    } else {
+        echo "Erro: " . $stmt->error;
+    }
+
+    $stmt->close();
+    $pdo->close();
+}
 ?>
-
-<html>
-    <head>
-    <link rel="stylesheet" href="tchetche.css">
-
-    </head>
-    <form action="inserir_dados.php" method="post">
-
-        <label for="nome">Insira seu nome:</label>
-        <input name="nome" id="nome" type="text">
-
-        <br>
-
-        <label for="idade">Insira sua idade:</label>
-        <input name ="idade" id="idade" type="number">
-
-        <br>
-
-        <label for = "CPF">Insira seu CPF:</label>
-        <input name ="CPF" id="CPF" type="number">
-
-        <br>
-        <button type="submit">Enviar</button>
-    </form>
-</html>

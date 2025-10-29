@@ -8,10 +8,11 @@ include 'inserir_dados.php';
 
         </head>
       <body>
+        <div class="container">
         <h1 class="titulo">Você irá se cadastrar ou fazer o login?</h1>
-        <a href="login.php" class="botao">Login</a>
-        <a href="cadastro.php" class="botao">Cadastrar</a>
-
+        <a href="login.html" class="botao">Login</a>
+        <a href="cadastro.html" class="botao">Cadastrar</a>
+        </div>
 
 
       </body>
