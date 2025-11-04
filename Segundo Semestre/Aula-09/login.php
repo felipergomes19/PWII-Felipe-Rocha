@@ -5,7 +5,7 @@ include('Databaseconnect.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
-
+    $conn =  mysqli_connect(HOST, USUARIO, SENHA, DB);
     // Busca o usuário pelo email
     $sql = "SELECT * FROM usuarios WHERE email = ?";
     $stmt = $conn->prepare($sql);
@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Login bem-sucedido
             $_SESSION['usuario_id'] = $usuario['id'];
             $_SESSION['usuario_nome'] = $usuario['nome'];
-            header("Location: painel.php");
+            header("Location: sla.html");
             exit();
         } else {
             echo "Senha incorreta!";

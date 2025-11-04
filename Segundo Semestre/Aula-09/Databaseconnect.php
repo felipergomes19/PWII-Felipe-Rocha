@@ -1,14 +1,10 @@
 <?php
-$host = 'localhost';
-$dbname = 'bancoSql';
-$user = 'root';
-$pass = ''; 
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+define('HOST', '127.0.0.1');
+define('USUARIO', 'root');
+define('SENHA', '');
+define('DB', 'BancoSqlCode');
+$conn= mysqli_connect(HOST, USUARIO, SENHA, DB) or die ('Não foi possível estabelecer conexão');
 
-   
-} catch (PDOException $e) {
-    
-}
+
+
 ?>

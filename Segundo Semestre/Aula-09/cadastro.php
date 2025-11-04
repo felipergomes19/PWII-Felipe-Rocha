@@ -12,11 +12,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt->execute()) {
         echo "Usuário cadastrado com sucesso!";
+        header("Location: sla.html");
+        
     } else {
         echo "Erro: " . $stmt->error;
     }
 
     $stmt->close();
-    $pdo->close();
 }
 ?>
